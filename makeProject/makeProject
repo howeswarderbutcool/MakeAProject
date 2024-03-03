@@ -9,44 +9,48 @@
 # the templates are fully customizable and can be added to the Template directory
 
 
-#----------------------------------------------------------------------------------------------------------------#
-#From imput to variabele
+#------------------------------------------From imput to variabele----------------------------------------------#
 template=$1
-
-projectName=$2
-
-directory=$3
-
 workDir=$(pwd)
 
+if [ -n "$2" ]; then
+	projectName=$2
+else
+	projectName=$template
+fi
 
-#----------------------------------------------------------------------------------------------------------------#
-#Declareing
+if [ -n "$3" ]; then
+	directory=$3
+else
+	directory=$workDir
+fi
 
-#get a list of templates
+
+#-----------------------------------------------Declareing-----------------------------------------------------#
 for file in $(ls ./Template/); do
     templateList+=("$file")
 done
+#------------------------------------------------Functions-----------------------------------------------------#
 
 function help() {
 	echo "makeProject.sh <template> <projectName> <directory>"
 	echo "template: the type of project you want to create"
 	echo "projectName: the name of the project"
 	echo "directory: the directory you want to create the project in"
-	echo "template list for a list a templates"
+	echo "makeProject.sh --list for a list a templates"
 	echo "link to project: https://github.com/howeswarderbutcool/MakeCProject"
 }
 
 function error() {
 	echo "an error occured, you need to enter the template type an optinal project name and directory"
-	echo "use makeProject.sh help for more information"
+	echo "use makeProject.sh --help for more information"
 }
 
 function export() {
-	if [ $template == "help" ]; then
+	if [ $template == "--help" ]; then
 		help
 		return 0
-	elif [ $template == "list" ]; then
+	elif [ $template == "--list" ]; then
 		echo "template list: " ${templateList[@]}
 		return 0
 	else
@@ -54,15 +58,13 @@ function export() {
 			if [ $template == "$dir" ]; then
 				echo "exporting: " $dir
 				cp -r ./Template/$dir $directory/$dir
-				mv $directory/$dir $directory/$projectName
+				mv $directory/$dir $directory/$projectName # will throw error if name is now given. or name is == to template.
 				return 0
 			fi
 		done
-	fi
+	fi 
 }
-
-#----------------------------------------------------------------------------------------------------------------#
-#main() if you will
+#------------------------------------------main() if you will--------------------------------------------------#
 if [ $# -eq 0 ]; then
 	error
 else

@@ -11,3 +11,5 @@ There is no Officel Realese for this right now.
 To run the script enter: `makeCProject.sh "typ of template" "name of the project" "directory"`
 
 Keep in mind that right now the script will only rename the folder.
+
+TODO: REWRITE THE MARKDOWN
