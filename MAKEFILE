@@ -1,3 +1,0 @@
-#TODO Create Make Installer for Linux
-
-#TODO Create UNINSTALLER for Linux

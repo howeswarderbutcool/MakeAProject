@@ -27,7 +27,7 @@ fi
 
 
 #-----------------------------------------------Declareing-----------------------------------------------------#
-for file in $(ls ./Template/); do
+for file in $(ls ~/.config/makeProject/Template/); do
     templateList+=("$file")
 done
 #------------------------------------------------Functions-----------------------------------------------------#
@@ -57,7 +57,7 @@ function export() {
 		for dir in "${templateList[@]}"; do
 			if [ $template == "$dir" ]; then
 				echo "exporting: " $dir
-				cp -r ./Template/$dir $directory/$dir
+				cp -r ~/.config/makeProject/Template/$dir $directory/$dir
 				mv $directory/$dir $directory/$projectName # will throw error if name is now given. or name is == to template.
 				return 0
 			fi

@@ -1,15 +1,15 @@
 # MakeAProject
 
-This script will simply copy a template program to the entered directory
+### Installation: 
+    - Download the package and extract.
+    - Go into the directory. 
+    - `sudo make install` for installation.
+    - `sudo make uninstall` for uninstall.
+    - run `mp --help`.
+---
+This Script will copy a template of youre choice to the directory you need it.
+The Templates are fully customizable.
 
-Right now there is only a C++ with CMake and a HTML Template but more will be added. 
-
-you can configure the template the way you like it inside the `Template` directory.
-
-There is no Officel Realese for this right now.
-
-To run the script enter: `makeCProject.sh "typ of template" "name of the project" "directory"`
-
-Keep in mind that right now the script will only rename the folder.
-
-TODO: REWRITE THE MARKDOWN
+you can find the Templates under `~/.config/makeProject/Template`
+---
+if you want to add a new Template just add it inside the Template directory and with the needed files. `The Name of The Template will be the name of the Directory`
