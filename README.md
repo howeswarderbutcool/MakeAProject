@@ -2,12 +2,12 @@
 
 ### Installation: 
 
-    - Download the package and extract.
-    - Go into the directory. 
-    - `sudo make install` for installation.
-    - `sudo make uninstall` for uninstall.
-    - run `mp --help`.
-    
+ - Download the package and extract.
+ - Go into the directory.
+ - `sudo make install` for installation.
+ - `sudo make uninstall` for uninstall.
+ - run `mp --help`.
+
 ___
 This Script will copy a template of youre choice to the directory you need it.
 The Templates are fully customizable.
