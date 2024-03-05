@@ -53,6 +53,15 @@ function export() {
 	elif [ $template == "--list" ]; then
 		echo "template list: " ${templateList[@]}
 		return 0
+	elif [ $template == "--version" ]; then
+		echo "makeProject.sh version 0.5"
+		return 0
+	elif [ $template == "--add" ]; then
+		cp -r $workDir/$projectName ~/.config/makeProject/Template/$projectName
+		return 0
+	elif [ $template == "--remove" ]; then
+		rm -rf ~/.config/makeProject/Template/$projectName
+		return 0
 	else
 		for dir in "${templateList[@]}"; do
 			if [ $template == "$dir" ]; then
