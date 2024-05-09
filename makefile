@@ -7,15 +7,15 @@ SRC_SCRIPT_DIR = ./makeProject/makeProject
 
 # The install target
 install:
-	# Ensure the destination directory exists
+	# Start Installation
 	mkdir -p $(CONFIG_DIR)
-	# Copy the Template to the .config directory
 	cp -r $(SRC_TEMPLATE_DIR) $(CONFIG_DIR)
-	# Copy the script to the /usr/bin directory
 	cp $(SRC_SCRIPT_DIR) $(SCRIPT_DIR)
-	# Make the script executable
 	chmod +x $(SCRIPT_DIR)$(SCRIPT)
 	mv $(SCRIPT_DIR)$(SCRIPT) $(SCRIPT_DIR)mp
+	# success ~/.config/makeProject created 
+	# run mp --version to verify installation
+	# run mp --help to see available commands
 
 # The uninstall target
 uninstall:
@@ -23,3 +23,4 @@ uninstall:
 	rm -f $(SCRIPT_DIR)mp
 	# Remove the Template from the .config directory
 	rm -rf $(CONFIG_DIR)
+	# success makeProject uninstalled

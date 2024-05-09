@@ -8,7 +8,6 @@
 #the script will then create a new project in the directory with the name of the project
 # the templates are fully customizable and can be added to the Template directory
 
-
 #------------------------------------------From imput to variabele----------------------------------------------#
 template=$1
 workDir=$(pwd)
@@ -34,10 +33,19 @@ done
 
 function help() {
 	echo "makeProject.sh <template> <projectName> <directory>"
+	echo " "
 	echo "template: the type of project you want to create"
 	echo "projectName: the name of the project"
 	echo "directory: the directory you want to create the project in"
-	echo "makeProject.sh --list for a list a templates"
+	echo " "
+	echo "--list --> for a list a templates"
+	echo "--add --> current directory + <projectName> will be added to the template list"
+	echo "--remove --> <projectName> will be removed from the template list"
+	echo "--version --> get current version"
+	echo "--help --> get help"
+	echo " "
+	echo "Template directory: ~/.config/makeProject/Template/"
+	echo " "
 	echo "link to project: https://github.com/howeswarderbutcool/MakeCProject"
 }
 
@@ -54,7 +62,7 @@ function export() {
 		echo "template list: " ${templateList[@]}
 		return 0
 	elif [ $template == "--version" ]; then
-		echo "makeProject.sh version 0.5"
+		echo "makeProject.sh version 0.6"
 		return 0
 	elif [ $template == "--add" ]; then
 		cp -r $workDir/$projectName ~/.config/makeProject/Template/$projectName
